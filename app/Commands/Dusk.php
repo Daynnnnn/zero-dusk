@@ -28,7 +28,7 @@ class Dusk extends Command
      */
     public function handle()
     {
-        require('tests/cauldron-2018.php');
+        require('tests/' . env('SITE') . '.php');
     }
 
     /**
