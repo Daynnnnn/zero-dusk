@@ -32,14 +32,12 @@
                     ->type('#txtMessage', 'fdsf')
                     ->assertSee('1752242 (GB)')
                     ->click('button[class="btn btn-green btn-md mb-auto ml-15"]')
-                    ->pause(1500)
                     ->assertSee('We\'ve recieved your request');
 
             $browser->visit('https://cauldron-2018.qa.prlx.io/admin')
                     ->type('#email', 'dusk@parall.ax')
                     ->type('#password', 'NotARealPassword')
                     ->click('button[class="ex-btn ex-btn--primary login__submit js-login__submit"]')
-                    ->pause(1500)
                     ->assertSee('Incorrect login details. Please check and try again..');
         });
 ?>
