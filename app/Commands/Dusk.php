@@ -28,7 +28,7 @@ class Dusk extends Command
      */
     public function handle()
     {
-        require('tests/' . env('SITE') . '.php');
+        require('/src/tests/' . env('SITE') . '.php');
     }
 
     /**
