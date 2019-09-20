@@ -1,6 +1,6 @@
 <?php
         $this->browse(function ($browser) {
-            $browser->visit('https://ducie-house.' . env('APP_ENV') . '.prlx.io')
+            $browser->visit(env('APP_URL'))
                     ->pause(2000)
                     ->assertSee('Ducie House,')
                     ->assertSee('Unique Workspace in')

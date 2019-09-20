@@ -1,24 +1,24 @@
 <?php
         $this->browse(function ($browser) {
-            $browser->visit('https://arena-quarter.' . env('APP_ENV') . '.prlx.io')
+            $browser->visit(env('APP_URL'))
                     ->assertSee('With restaurants, bars, clubs')
                     ->assertSee('02271353');
 
-            $browser->visit('https://arena-quarter.' . env('APP_ENV') . '.prlx.io/first-direct-arena')
+            $browser->visit(env('APP_URL') . '/first-direct-arena')
                     ->assertSee('Find out what\'s coming up')
                     ->assertSee('02271353');
 
-            $browser->visit('https://arena-quarter.' . env('APP_ENV') . '.prlx.io/units')
+            $browser->visit(env('APP_URL') . '/units')
                     ->assertSee('KFC')
                     ->assertSee('02271353')
                     ->assertSee('There\'s plenty of choice at Leeds\' Arena Quarter.');
 
-            $browser->visit('https://arena-quarter.' . env('APP_ENV') . '.prlx.io/promotions-events')
+            $browser->visit(env('APP_URL') . '/promotions-events')
                     ->assertSee('Your chance to see what\'s happening')
                     ->assertSee('02271353')
                     ->assertSee('Promotions & Events');
 
-            $browser->visit('https://arena-quarter.' . env('APP_ENV') . '.prlx.io/contact')
+            $browser->visit(env('APP_URL') . '/contact')
             		->assertSee('Fill in the form below and we\'ll get back to you as soon as we can.')
             		->click('button[class="select__label select__label--placeholder js-select-label"]')
             		->click('button[data-value="General"]')
@@ -33,7 +33,7 @@
                     ->assertSee('Message has been sent successfully')
                     ->assertSee('02271353');
 
-            $browser->visit('https://arena-quarter.' . env('APP_ENV') . '.prlx.io/admin')
+            $browser->visit(env('APP_URL') . '/admin')
                     ->type('#email', 'dusk@parall.ax')
                     ->type('#password', 'NotARealPassword')
                     ->click('button[class="ex-btn ex-btn--primary login__submit js-login__submit"]')
