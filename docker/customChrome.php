@@ -34,8 +34,6 @@ class Chrome implements DriverContract
     {
         $options = (new ChromeOptions)->addArguments(
             [
-                '--disable-gpu',
-                '--headless',
                 '--window-size=1920,1080',
                 '--no-sandbox',
                 '--disable-dev-shm-usage',

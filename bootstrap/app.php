@@ -36,6 +36,8 @@ $app->singleton(
     Illuminate\Foundation\Exceptions\Handler::class
 );
 
+$app->register(\Staudenmeir\DuskUpdater\DuskServiceProvider::class);
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application
