@@ -14,6 +14,6 @@
                     ->visit(env('APP_URL') . '/locations/leeds-city')
                     ->assertSee('VISIT US IN OUR LEEDS APARTHOTEL')
                     ->visit(env('APP_URL') . '/locations/leeds-city')
-                    ->assertSee('VISIT US IN OUR LEEDS APARTHOTEL')
+                    ->assertSee('VISIT US IN OUR LEEDS APARTHOTEL');
         });
 ?>
