@@ -26,11 +26,5 @@
                     ->assertSee('Fllike iOS Application - Venture Project')
                     ->assertSee('CrimeMapp iOS Application - UI Design')
                     ->assertSee('09419901');
-
-            $browser->visit(env('APP_URL') . '/admin')
-                    ->type('#email', 'dusk@parall.ax')
-                    ->type('#password', 'NotARealPassword')
-                    ->click('button[class="ex-btn ex-btn--primary login__submit js-login__submit"]')
-                    ->assertSee('Incorrect login details. Please check and try again.');
         });
 ?>

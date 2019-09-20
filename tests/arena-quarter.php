@@ -32,11 +32,5 @@
                     ->pause(1000)
                     ->assertSee('Message has been sent successfully')
                     ->assertSee('02271353');
-
-            $browser->visit(env('APP_URL') . '/admin')
-                    ->type('#email', 'dusk@parall.ax')
-                    ->type('#password', 'NotARealPassword')
-                    ->click('button[class="ex-btn ex-btn--primary login__submit js-login__submit"]')
-                    ->assertSee('Incorrect login details. Please check and try again.');
         });
 ?>
