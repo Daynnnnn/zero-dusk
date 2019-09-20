@@ -26,8 +26,9 @@
                     ->type('#contact-form-lastname', 'Testing')
                     ->type('#contact-form-email', 'dusk@parall.ax')
                     ->type('#contact-form-phone', '07777777777')
-                    ->type('#contact-form-enquiry', 'Please ignore. Automated test run by Parallax.')
-                    ->click('button[class="btn btn--teal btn--large  "]')
+                    ->type('#contact-form-enquiry', 'Please ignore. Automated test run by Parallax.');
+                    $browser->script('window.scrollTo(0, 400);');
+                    $browser->click('button[class="btn btn--teal btn--large  "]')
                     ->pause(1000)
                     ->assertSee('Message has been sent successfully')
                     ->assertSee('02271353');

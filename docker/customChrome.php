@@ -36,7 +36,7 @@ class Chrome implements DriverContract
             [
                 '--disable-gpu',
                 '--headless',
-                '--window-size=2560,5000',
+                '--window-size=1920,1080',
                 '--no-sandbox',
                 '--disable-dev-shm-usage',
             ]
