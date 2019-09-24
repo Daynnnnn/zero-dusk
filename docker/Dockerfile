@@ -18,6 +18,7 @@ RUN cd /src;\
 ADD / /src
 
 ADD /docker/customChrome.php /src/vendor/nunomaduro/laravel-console-dusk/src/Drivers/Chrome.php
+ADD /docker/LaravelConsoleTaskServiceProvider.php /src/vendor/nunomaduro/laravel-console-task/src/LaravelConsoleTaskServiceProvider.php
 
 RUN php /src/zero-dusk dusk:update 76
 RUN chmod 777 /src/docker/startup.sh
