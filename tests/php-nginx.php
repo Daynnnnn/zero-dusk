@@ -72,7 +72,7 @@ use Symfony\Component\Process\Process;
 /*------------------------------
           This is a
           test for
-          the PHP
+          a PHP 500
           error page.
 -------------------------------*/
 
@@ -130,8 +130,8 @@ if ($Code == 200) {
 /*------------------------------
           This is a
           test for
-          the PHP
-          error page.
+          PHP
+          uploads.
 -------------------------------*/
 
 $fileName = str_shuffle('VeGQdH TZM 4P87');
@@ -172,14 +172,80 @@ if ($return == $md5) {
         echo '|   ✅ : Upload Succeeded!   |' . PHP_EOL;
         echo '+----------------------------+' . PHP_EOL . PHP_EOL;
         echo 'Response MD5: ' . $return . PHP_EOL;
-        echo '  Actual MD5: ' . $md5;
+        echo '  Actual MD5: ' . $md5  . PHP_EOL . PHP_EOL;
 } else {
         echo '+-----------------------------+' . PHP_EOL;
         echo '|   ❌❌❌ : Upload Failed!   |' . PHP_EOL;
         echo '+-----------------------------+' . PHP_EOL . PHP_EOL;
         echo 'Response MD5: ' . $return . PHP_EOL;
         echo '  Actual MD5: ' . $md5;
-        echo $return;
+        echo $return  . PHP_EOL . PHP_EOL;
 }
+
+/*------------------------------
+          This is a
+          test for
+          a PHP 403
+          error page.
+-------------------------------*/
+
+    $URL = env('APP_URL') . '/forbidden/';
+    
+    $Code = get_http_response_code($URL);
+    
+    if ( $Code == 403 ) {
+        echo '+----------------------------+' . PHP_EOL;
+        echo '|  ✅ : Returned 403 (Woop)  |' . PHP_EOL;
+        echo '+----------------------------+' . PHP_EOL . PHP_EOL;
+    } else {
+        echo '+--------------------------------------------------------------------+' . PHP_EOL;
+        echo '|  ❌❌❌ : Test Failed, expected HTTP response of 403, but got ' . $Code . '  |' . PHP_EOL;
+        echo '+--------------------------------------------------------------------+';
+        exit(1);
+    }
+
+/*------------------------------
+          This is a
+          test for
+          a PHP 404
+          error page.
+-------------------------------*/
+
+    $URL = env('APP_URL') . '/aaaaaaaaaaaa';
+    
+    $Code = get_http_response_code($URL);
+    
+    if ( $Code == 404 ) {
+        echo '+----------------------------+' . PHP_EOL;
+        echo '|  ✅ : Returned 404 (Woop)  |' . PHP_EOL;
+        echo '+----------------------------+' . PHP_EOL . PHP_EOL;
+    } else {
+        echo '+--------------------------------------------------------------------+' . PHP_EOL;
+        echo '|  ❌❌❌ : Test Failed, expected HTTP response of 404, but got ' . $Code . '  |' . PHP_EOL;
+        echo '+--------------------------------------------------------------------+';
+        exit(1);
+    }
+
+/*------------------------------
+          This is a
+          test for
+          a PHP 504
+          error page.
+-------------------------------*/
+
+    $URL = env('APP_URL') . '/timeout.php';
+    
+    $Code = get_http_response_code($URL);
+    
+    if ( $Code == 504 ) {
+        echo '+----------------------------+' . PHP_EOL;
+        echo '|  ✅ : Returned 504 (Woop)  |' . PHP_EOL;
+        echo '+----------------------------+' . PHP_EOL . PHP_EOL;
+    } else {
+        echo '+--------------------------------------------------------------------+' . PHP_EOL;
+        echo '|  ❌❌❌ : Test Failed, expected HTTP response of 504, but got ' . $Code . '  |' . PHP_EOL;
+        echo '+--------------------------------------------------------------------+';
+        exit(1);
+    }
 
 ?>
